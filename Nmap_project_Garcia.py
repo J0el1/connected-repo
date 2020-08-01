@@ -1,7 +1,8 @@
-
+#import module and setting up scanner object
 import nmap
 
 scanner = nmap.PortScanner()
+#Non-flashy promt information
 
 print('Garcia J Final, 1.2')
 
@@ -10,7 +11,7 @@ ip_addr = input('Please enter the IP address you want to scan: ')
 print('The IP you entered is:', ip_addr)
 type(ip_addr)
 
-
+#Scan selection
 resp = input("""\nPlease enter the type of scan you want to run
 			1)SYN ACK Scan
 			2)UDP Scann
@@ -44,7 +45,7 @@ elif resp == '3':
 	print(scanner[ip_addr].all_protocols())
 	print('Open Ports: ', scanner[ip_addr]['tcp'].keys())
 	
-		
+#regardless of type of scan conducted, print the results and .csv
 	
 print(scanner.csv(),file=open('ScanResults.csv', 'w'))
 
